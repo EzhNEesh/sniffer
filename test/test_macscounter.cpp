@@ -49,7 +49,7 @@ struct MacsCounterTest : testing::Test {
 };
 
 TEST_F(MacsCounterTest, GetMacsCount_Test) {
-    std::unordered_map<std::string, int> macsCount = macsCounter->getMacsCount("frames_parser.log");
+    std::unordered_map<std::string, int> macsCount = macsCounter->getMacsCount("../frames_parser.log");
 
     ASSERT_THAT(macsCount, testing::UnorderedElementsAreArray(macsCountExc));
 }
