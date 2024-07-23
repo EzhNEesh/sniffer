@@ -41,6 +41,6 @@ std::vector<std::pair<std::string, int>> MacsCounter::orderMacs(const std::unord
 }
 
 bool MacsCounter::in_kwords(const std::string &string_to_find) {
-    std::vector<std::string> kwords {"SA", "TA", "RA", "BSSID", "DA"};
+    std::vector<std::string> kwords {"SA", "TA", "RA", "DA"};
     return find(kwords.begin(), kwords.end(), string_to_find) != kwords.end();
 }
