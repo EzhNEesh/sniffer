@@ -6,13 +6,14 @@
 #include <iostream>
 #include <unordered_map>
 #include <map>
+#include <vector>
 
 class MacsCounter
 {
 public:
     MacsCounter();
     std::unordered_map<std::string, int> getMacsCount(const std::string &);
-    std::multimap<int, std::string> orderMacs(const std::unordered_map<std::string, int> &);
+    std::vector<std::pair<std::string, int>> orderMacs(const std::unordered_map<std::string, int> &);
 
 private:
     bool in_kwords(const std::string &);

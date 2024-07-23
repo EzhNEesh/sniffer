@@ -26,12 +26,18 @@ std::unordered_map<std::string, int> MacsCounter::getMacsCount(const std::string
     return macsCount;
 }
 
-std::multimap<int, std::string> MacsCounter::orderMacs(const std::unordered_map<std::string, int> &unorderedMacs) {
-    std::multimap<int, std::string> res;
+std::vector<std::pair<std::string, int>> MacsCounter::orderMacs(const std::unordered_map<std::string, int> &unorderedMacs) {
+    std::multimap<int, std::string> res_map;
     for (auto it=unorderedMacs.begin(); it!=unorderedMacs.end(); it++) {
-        res.insert({it->second, it->first});
+        res_map.insert({it->second, it->first});
     }
-    return res;
+
+    std::vector<std::pair<std::string, int>> res_vector;
+    for (auto it=res_map.rbegin(); it!=res_map.rend(); it++) {
+        res_vector.push_back(std::pair<std::string, int> (it->second, it->first));
+    }
+
+    return res_vector;
 }
 
 bool MacsCounter::in_kwords(const std::string &string_to_find) {

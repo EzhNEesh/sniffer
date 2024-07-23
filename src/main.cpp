@@ -14,9 +14,10 @@ int main(int argc, char *argv[])
     }
     MacsCounter macsCounter;
     unordered_map<string, int> macsCount = macsCounter.getMacsCount(argv[1]);
-    multimap<int, string> res_out = macsCounter.orderMacs(macsCount);
-    for (auto it=res_out.begin(); it!=res_out.end();it++) {
-        cout << it->second << ' ' << it->first << endl;
+
+    vector<pair<string, int>> res_out = macsCounter.orderMacs(macsCount);
+    for (auto it=res_out.begin(); it!=res_out.end(); it++) {
+        cout << it->first << ' ' << it->second << endl;
     }
     return 0;
 }
