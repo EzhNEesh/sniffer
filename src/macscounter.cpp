@@ -3,7 +3,10 @@
 
 #include "macscounter.h"
 
-MacsCounter::MacsCounter() {}
+MacsCounter::MacsCounter() {
+    kwords = {"SA", "TA", "RA", "DA"};
+    // std::vector<std::string> kwords {"SA", "TA", "RA", "DA"};
+}
 
 std::unordered_map<std::string, int> MacsCounter::getMacsCount(const std::string &filePath) {
     std::string line;
@@ -14,7 +17,7 @@ std::unordered_map<std::string, int> MacsCounter::getMacsCount(const std::string
             size_t delim = line.find(',');
             while (delim != std::string::npos) {
                 std::string cur_key = line.substr(delim + 1, 2);
-                if (inKwords(cur_key)) {
+                if (kwords.find(cur_key) != kwords.end()) {
                     std::string mac = line.substr(line.find('=', delim + 1) + 1, 17);
                     if (macsCount.find(mac) == macsCount.end()) {
                         macsCount[mac] = 0;
@@ -45,7 +48,7 @@ std::vector<std::pair<std::string, int>> MacsCounter::orderMacs(const std::unord
     return res_vector;
 }
 
-bool MacsCounter::inKwords(const std::string &string_to_find) {
-    std::vector<std::string> kwords {"SA", "TA", "RA", "DA"};
-    return find(kwords.begin(), kwords.end(), string_to_find) != kwords.end();
-}
+// bool MacsCounter::inKwords(const std::string &string_to_find) {
+//     std::vector<std::string> kwords {"SA", "TA", "RA", "DA"};
+//     return find(kwords.begin(), kwords.end(), string_to_find) != kwords.end();
+// }
