@@ -1,9 +1,7 @@
 #ifndef MACSCOUNTER_H
 #define MACSCOUNTER_H
 
-#include <fstream>
 #include <string>
-#include <iostream>
 #include <unordered_map>
 #include <map>
 #include <vector>

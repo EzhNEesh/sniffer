@@ -1,3 +1,6 @@
+#include <fstream>
+#include <iostream>
+
 #include "macscounter.h"
 
 MacsCounter::MacsCounter() {}
