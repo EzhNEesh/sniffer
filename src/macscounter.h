@@ -12,8 +12,8 @@ class MacsCounter
 {
 public:
     MacsCounter();
-    std::unordered_map<std::string, int> getMacsCount(const std::string &);
-    std::vector<std::pair<std::string, int>> orderMacs(const std::unordered_map<std::string, int> &);
+    std::unordered_map<std::string, int> getMacsCount(const std::string &filePath);
+    std::vector<std::pair<std::string, int>> orderMacs(const std::unordered_map<std::string, int> &unorderedMacs);
 
 private:
     bool inKwords(const std::string &);
