@@ -22,6 +22,8 @@ std::unordered_map<std::string, int> MacsCounter::getMacsCount(const std::string
             }
         }
         frames_file.close();
+    } else {
+        throw std::runtime_error("Could not open file");
     }
     return macsCount;
 }

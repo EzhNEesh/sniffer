@@ -5,19 +5,25 @@
 
 #include "macscounter.h"
 
-using namespace std;
-
 int main(int argc, char *argv[])
 {
-    if (argc <= 1) {
+    if (argc != 2) {
+        std::cout << "The count of arguments must be two\n";
         return 1;
     }
     MacsCounter macsCounter;
-    unordered_map<string, int> macsCount = macsCounter.getMacsCount(argv[1]);
+    std::unordered_map<std::string, int> macsCount;
 
-    vector<pair<string, int>> res_out = macsCounter.orderMacs(macsCount);
+    try {
+        macsCount = macsCounter.getMacsCount(argv[1]);
+    } catch (std::runtime_error &excp) {
+        std::cout << excp.what() << std::endl;
+        return 1;
+    }
+
+    std::vector<std::pair<std::string, int>> res_out = macsCounter.orderMacs(macsCount);
     for (auto it=res_out.begin(); it!=res_out.end(); it++) {
-        cout << it->first << ' ' << it->second << endl;
+        std::cout << it->first << ' ' << it->second << std::endl;
     }
     return 0;
 }
