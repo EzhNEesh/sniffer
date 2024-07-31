@@ -18,6 +18,9 @@ int main(int argc, char *argv[])
     } catch (std::runtime_error &excp) {
         std::cout << excp.what() << std::endl;
         return 1;
+    } catch (std::out_of_range &excp) {
+        std::cout << excp.what() << std::endl;
+        return 1;
     }
 
     std::vector<std::pair<std::string, int>> res_out = macsCounter.orderMacs(macsCount);
