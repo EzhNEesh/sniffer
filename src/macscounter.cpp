@@ -11,7 +11,7 @@ std::unordered_map<std::string, int> MacsCounter::getMacsCount(const std::string
             size_t delim = line.find(',');
             while (delim != std::string::npos) {
                 std::string cur_key = line.substr(delim + 1, 2);
-                if (this->inKwords(cur_key)) {
+                if (inKwords(cur_key)) {
                     std::string mac = line.substr(line.find('=', delim + 1) + 1, 17);
                     if (macsCount.find(mac) == macsCount.end()) {
                         macsCount[mac] = 0;
