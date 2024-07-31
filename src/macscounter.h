@@ -16,7 +16,7 @@ public:
     std::vector<std::pair<std::string, int>> orderMacs(const std::unordered_map<std::string, int> &);
 
 private:
-    bool in_kwords(const std::string &);
+    bool inKwords(const std::string &);
 };
 
 #endif // MACSCOUNTER_H

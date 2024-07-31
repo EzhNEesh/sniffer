@@ -11,7 +11,7 @@ std::unordered_map<std::string, int> MacsCounter::getMacsCount(const std::string
             size_t delim = line.find(',');
             while (delim != std::string::npos) {
                 std::string cur_key = line.substr(delim + 1, 2);
-                if (this->in_kwords(cur_key)) {
+                if (this->inKwords(cur_key)) {
                     std::string mac = line.substr(line.find('=', delim + 1) + 1, 17);
                     if (macsCount.find(mac) == macsCount.end()) {
                         macsCount[mac] = 0;
@@ -42,7 +42,7 @@ std::vector<std::pair<std::string, int>> MacsCounter::orderMacs(const std::unord
     return res_vector;
 }
 
-bool MacsCounter::in_kwords(const std::string &string_to_find) {
+bool MacsCounter::inKwords(const std::string &string_to_find) {
     std::vector<std::string> kwords {"SA", "TA", "RA", "DA"};
     return find(kwords.begin(), kwords.end(), string_to_find) != kwords.end();
 }
