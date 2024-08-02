@@ -4,8 +4,8 @@
 #include <map>
 #include <iostream>
 
-#include "../src/macscounter.h"
-#include "../src/macscounter.cpp"
+#include "macscounter.h"
+#include "macscounter.cpp"
 
 struct MacsCounterTest : testing::Test {
     MacsCounter *macsCounter;
