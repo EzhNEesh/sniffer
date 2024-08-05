@@ -46,8 +46,21 @@ TEST_F(MacsCounterTest, GetMacsCount_Test) {
     ASSERT_THAT(macsCount, testing::UnorderedElementsAreArray(macsCountExc));
 }
 
+MATCHER(orderedMacsEq, "") {
+    return std::get<0>(arg) == std::get<1>(arg);
+}
+
 TEST_F(MacsCounterTest, OrderMacs_Test) {
     std::vector<std::pair<std::string, int>> orderedMacs = macsCounter->orderMacs(macsCountExc);
+    std::vector<int> macsKeys;
+    for (auto &it : orderedMacs) {
+        macsKeys.push_back(it.second);
+    }
+    std::vector<int> macsKeysExc;
+    for (auto &it : orderedMacsExc) {
+        macsKeysExc.push_back(it.second);
+    }
 
-    ASSERT_EQ(orderedMacs, orderedMacsExc);
+    EXPECT_THAT(orderedMacs, testing::UnorderedPointwise(orderedMacsEq(), orderedMacsExc));
+    EXPECT_THAT(macsKeys, testing::ElementsAreArray(macsKeysExc));
 }
